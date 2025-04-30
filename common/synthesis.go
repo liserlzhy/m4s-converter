@@ -2,10 +2,6 @@ package common
 
 import (
 	"fmt"
-	"github.com/bitly/go-simplejson"
-	"github.com/fatih/color"
-	utils "github.com/mzky/utils/common"
-	"github.com/sirupsen/logrus"
 	"m4s-converter/conver"
 	"os"
 	"os/exec"
@@ -13,6 +9,11 @@ import (
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/bitly/go-simplejson"
+	"github.com/fatih/color"
+	utils "github.com/mzky/utils/common"
+	"github.com/sirupsen/logrus"
 )
 
 func (c *Config) Synthesis() {
@@ -75,6 +76,13 @@ func (c *Config) Synthesis() {
 		title := Filter(js.Get("page_data").Get("download_subtitle").String())
 		title = null2Str(title, Filter(js.Get("title").String()))
 
+		p, perror := js.Get("p").Int()
+
+		pstr := ""
+		if perror == nil {
+			pstr = fmt.Sprintf("%03d-", p)
+		}
+
 		uname := Filter(js.Get("uname").String())
 		uname = null2Str(uname, Filter(js.Get("title").String()))
 
@@ -103,7 +111,7 @@ func (c *Config) Synthesis() {
 				c.wait()
 			}
 		}
-		mp4Name := title + conver.Mp4Suffix
+		mp4Name := pstr + title + conver.Mp4Suffix
 		outputFile := filepath.Join(groupDir, mp4Name)
 		if c.Skip || utils.IsExist(outputFile) && c.findMp4Info(outputFile, c.ItemId) {
 			logrus.Warn("跳过完全相同的视频: ", filepath.Join(groupPath, mp4Name))
