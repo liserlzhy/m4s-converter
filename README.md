@@ -1,30 +1,33 @@
+基于 [mzky/m4s-converter](https://github.com/mzky/m4s-converter) ，转换合集时自动在文件名称前加上合集序号，保证缓存顺序与转换后的顺序一致。
+
 ## 为什么开发此程序？
-bilibili下架了很多视频，之前收藏和缓存的视频均无法播放
+
+bilibili 下架了很多视频，之前收藏和缓存的视频均无法播放
 
 ![image](https://github.com/mzky/m4s-converter/assets/13345233/ea8bc799-e47d-40ca-bde4-c47193f0e453)
 
-- 喜欢的视频赶紧缓存起来，使用本程序将bilibili缓存的m4s转成mp4，方便随时播放。
+- 喜欢的视频赶紧缓存起来，使用本程序将 bilibili 缓存的 m4s 转成 mp4，方便随时播放。
 
-- 因bilibili使用的是GPAC处理视频，本工具从v1.5.0开始默认使用GPAC的MP4Box进行音视频合成（此版开始不支持32位系统），能够避免FFMpeg合成视频后音画不同步问题，详见：https://github.com/mzky/m4s-converter/issues/11
-
+- 因 bilibili 使用的是 GPAC 处理视频，本工具从 v1.5.0 开始默认使用 GPAC 的 MP4Box 进行音视频合成（此版开始不支持 32 位系统），能够避免 FFMpeg 合成视频后音画不同步问题，详见：https://github.com/mzky/m4s-converter/issues/11
 
 ### 下载后双击执行或通过命令行执行，需要可执行权限
+
 - https://github.com/mzky/m4s-converter/releases/latest
 
+### Android 手机端合并文件方法
 
-### Android手机端合并文件方法 
 - 详见：[拷贝文件与合成方法](https://github.com/mzky/m4s-converter/issues/9)
 
+### 除 window 和 linux 外，其它环境的依赖工具安装
 
-### 除window和linux外，其它环境的依赖工具安装
 - 详见：[依赖工具安装](https://github.com/mzky/m4s-converter/wiki/%E4%BE%9D%E8%B5%96%E5%B7%A5%E5%85%B7%E5%AE%89%E8%A3%85)
 
-
 ### 命令行参数
+
 ```
 # 指定FFMpeg路径: ./m4s-converter-linux_amd64 -f /var/FFMpeg/ffmpeg 或 ./m4s-converter-amd64 -f select
 # 指定MP4Box路径: ./m4s-converter-amd64.exe -g "D:\GPAC\mp4box.exe" 或 ./m4s-converter-amd64 -g select
- Flags: 
+ Flags:
     -h --help         查看帮助信息
     -v --version      查看版本信息
     -a --assoff       关闭自动生成弹幕功能，默认不关闭
@@ -35,8 +38,8 @@ bilibili下架了很多视频，之前收藏和缓存的视频均无法播放
     -f --ffmpegpath   自定义FFMpeg文件路径,值为select时弹出选择对话框
 ```
 
-
 ### 验证合成：
+
 ```
 2023-12-05_16:02:46 [INFO ] 已合成视频文件:中国-美景极致享受-笨蹦崩.mp4
 2023-12-05_16:02:46 [INFO ] ==========================================
@@ -56,21 +59,22 @@ C:\Users\mzky\Videos\bilibili\output\【4K8K-世界各地的美景】\中国-美
 以上为固态硬盘测试结果, 仅供参考
 
 ##
-#### 弹幕xml转换为ass使用了此项目
+
+#### 弹幕 xml 转换为 ass 使用了此项目
+
 - https://github.com/kafuumi/converter
 
-
 #### 视频编码使用的工具
+
 - https://gpac.io
 - https://ffmpeg.org
 - 本程序不会对下载的音视频转码，仅通过上面两个工具进行音视频轨合成
 
-
 #### 非缓存方式下载，推荐使用其它工具
+
 - https://github.com/nICEnnnnnnnLee/BilibiliDown
 - https://github.com/leiurayer/downkyi
 
-
 ## 提缺陷和建议
 
-知乎不常上，缺陷或建议提交 [issues](https://github.com/mzky/m4s-converter/issues/new/choose) , 最好带上异常视频的URL地址
+知乎不常上，缺陷或建议提交 [issues](https://github.com/mzky/m4s-converter/issues/new/choose) , 最好带上异常视频的 URL 地址
